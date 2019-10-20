@@ -16,6 +16,8 @@ class PendingListTable extends Component {
         super(props);
         this.onDeleteRow = this.onDeleteRow.bind(this);
         this.onInsertRow = this.onInsertRow.bind(this);
+        this.customConfirm = this.customConfirm.bind(this);
+
         props.data = unfinishedData;
     }
 
@@ -34,11 +36,18 @@ class PendingListTable extends Component {
         this.props.parentCallback(row);
     };
 
+    customConfirm(next, dropRowKeys) {
+        alert ('Are you sure you want to complete this task?');
+        next();
+    };
+
     render() {
         const options = {
             afterInsertRow: this.onInsertRow,
             afterDeleteRow: this.onDeleteRow,
-            deleteText: 'Complete'
+            deleteText: 'Complete',
+            handleConfirmDeleteRow: this.customConfirm
+
         };
 
         const selectRowProp = {
