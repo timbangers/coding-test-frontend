@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+import '../styles/FinishedListTable.css';
 
 //This component displays tasks that are done
 class CompletedListTable extends Component {
