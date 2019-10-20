@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './styles/App.css';
 import '../node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import UnfinishedListTable from './components/UnfinishedListTable.jsx';
-import FinishedListTable from './components/FinishedListTable.jsx';
+import PendingListTable from './components/PendingListTable.jsx';
+import CompletedListTable from './components/CompletedListTable.jsx';
 
 
 
@@ -21,16 +21,10 @@ class App extends Component {
 
     render(){
         return (
-            <div>
-                    <div className="App">
-                        <p>
-                            <UnfinishedListTable parentCallback = {this.callbackFunction}/>
-                        </p>
-                        <p>
-                            <FinishedListTable dataFromParent={this.state.completedData}/>
-                        </p>
-                    </div>
-            </div>
+            <div className="App">
+                    <PendingListTable parentCallback = {this.callbackFunction}/>
+                    <CompletedListTable dataFromParent={this.state.completedData}/>
+             </div>
         );
     }
 }

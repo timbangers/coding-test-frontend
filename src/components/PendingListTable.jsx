@@ -10,17 +10,17 @@ const unfinishedData = [
 ];
 
 //This component displays tasks that are in progress
-class UnfinishedListTable extends Component {
+class PendingListTable extends Component {
 
     constructor(props) {
         super(props);
-        this.onDeleteRow = this.onDeleteRow.bind(this)
-        this.onInsertRow = this.onInsertRow.bind(this)
-        this.props.data = unfinishedData;
+        this.onDeleteRow = this.onDeleteRow.bind(this);
+        this.onInsertRow = this.onInsertRow.bind(this);
+        props.data = unfinishedData;
     }
 
     onInsertRow(row) {
-        let newRowStr = ''
+        let newRowStr = '';
         for (const prop in row) {
             newRowStr += prop + ': ' + row[prop] + ' \n'
         }
@@ -39,11 +39,11 @@ class UnfinishedListTable extends Component {
             afterInsertRow: this.onInsertRow,
             afterDeleteRow: this.onDeleteRow,
             deleteText: 'Complete'
-        }
+        };
 
         const selectRowProp = {
             mode: 'checkbox'
-        }
+        };
 
         return (
             <div>
@@ -59,4 +59,4 @@ class UnfinishedListTable extends Component {
         )
     }
 }
-export default UnfinishedListTable
+export default PendingListTable
